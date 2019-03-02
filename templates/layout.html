@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="codepixer">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>{% block title %}Welcome{% endblock %} — Technologiq Theme</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ '/css/linearicons.css'|asseturl }}">
+        <link rel="stylesheet" href="{{ '/css/font-awesome.min.css'|asseturl }}">
+        <link rel="stylesheet" href="{{ '/css/bootstrap.css'|asseturl }}">
+        <link rel="stylesheet" href="{{ '/css/magnific-popup.css'|asseturl }}">
+        <link rel="stylesheet" href="{{ '/css/nice-select.css'|asseturl }}">
+        <link rel="stylesheet" href="{{ '/css/animate.min.css'|asseturl }}">
+        <link rel="stylesheet" href="{{ '/css/owl.carousel.css'|asseturl }}">
+        <link rel="stylesheet" href="{{ '/css/main.css'|asseturl }}">
+        <link rel="stylesheet" href="{{ '/static/style.css'|asseturl }}">
+    </head>
+    <body>
+        <!-- #header -->
+        <header id="header" id="home">
+            <div class="container">
+                <div class="row align-items-center justify-content-between d-flex">
+                  <div id="logo">
+                    <a href="index.html"><img src="{{ '/img/tech-logo.png' }}" alt="" title="" /></a>
+                  </div>
+                  <!-- #nav-menu-container -->
+                  <nav id="nav-menu-container">
+                    <ul class="nav-menu">
+                        <li{% if this._path == '/' %} class="menu-active"{% endif
+                          %}><a href="{{ '/'|url }}">Welcome</a></li>
+                        {% for href, title in [
+                          ['#service', 'Services'],
+                          ['#feature', 'Features'],
+                          ['#price', 'Price'],
+                          ['#testimonial', 'Testimonial'],
+                          ['/blog', 'Blog'],
+                        ] %}
+                          <li{% if this.is_child_of(href) %} class="active"{% endif
+                            %}><a href="{{ href|url }}">{{ title }}</a></li>
+                        {% endfor %}
+                        {% for href, title in [
+                          ['', 'Pages'],
+                        ] %}
+                          <li class="menu-has-children"><a href="{{ href|url }}">{{ title }}</a>
+                            <ul>
+                            {% for href, title in [
+                                ['/generic', 'Generic'],
+                              ] %}
+                              <li{% if this.is_child_of(href) %} class="active"{% endif
+                                %}><a href="{{ href|url }}">{{ title }}</a></li>
+                            {% endfor %}
+                            </ul>
+                          </li>
+                        {% endfor %}
+                        <li><a class="ticker-btn" href="#">Get Started</a></li>
+                    </ul>
+                  </nav>
+                  <!-- #nav-menu-container -->
+                </div>
+            </div>
+        </header>
+        <!-- #header -->
+
+        <!-- Banner Area -->
+        <section class="{% if this._path == '/' %}banner-area{% else %}generic-banner{% endif %} relative" id="home">
+            <div class="overlay overlay-bg"></div>
+            <div class="container">
+                <div class="row {% if this._path == '/' %}fullscreen{%else %}height{% endif %} d-flex align-items-center justify-content-center">
+                    <div class="banner-content {% if this._path == '/' %}col-lg-8{%else %}col-lg-10{% endif %}">
+                        {% if this._path == '/' %}
+                          <h1 class="text-white">
+                        {%else %}
+                          <h2 class="text-white">
+                        {% endif %}
+                        {% if not this.header_title %}
+                          {{ config.THEME_SETTINGS.company_name }}
+                        {% else %}
+                          {% block header_title %}
+                            {{ this.header_title }}
+                          {% endblock %}
+                        {% endif %}
+                        {% if this._path == '/' %}</h1>{%else %}</h2>{% endif %}
+                        <p class="pt-20 pb-20 text-white">
+                          {% if not this.header_text %}
+                            {{ config.THEME_SETTINGS.company_tagline }}
+                          {% else %}
+                            {% block header_text %}
+                              {{ this.header_text }}
+                            {% endblock %}
+                          {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Banner Area -->
+        {% if this._path == '/' %}
+            {% include "homepage_layout.html" with context %}
+        {% else %}
+            <!-- Lektor Page Section -->
+            <section class="main-content">
+            <div class="container">
+                {% block body %}{% endblock %}
+            </div>
+            </section>
+            <!-- Desired Blocks Included From "Page.html" -->
+
+            {% if this.sections %}
+                {% for section in this.sections %}
+                {% set section_string = 'sections/' + section|string + '.html' %}
+                    {% include section_string %}
+                {% endfor %}
+            {% endif %}
+
+            <!-- End Lektor Page Section -->
+        {% endif %}
+        <!-- start footer Area -->
+        <footer class="footer-area section-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h6>About Us</h6>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
+                            </p>
+                            <p class="footer-text">
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://github.com/hannylicious" target="_blank">Hanny</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5  col-md-6 col-sm-6">
+                        <div class="single-footer-widget">
+                            <h6>Newsletter</h6>
+                            <p>Stay update with our latest</p>
+                            <div class="" id="mc_embed_signup">
+                                <form target="_blank" novalidate="true" action="https://yournewsletterlink.com/" method="get" class="form-inline">
+                                    <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '" required="" type="email">
+                                        <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                                        <div style="position: absolute; left: -5000px;">
+                                            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                        </div>
+
+                                    <div class="info"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
+                        <div class="single-footer-widget">
+                            <h6>Follow Us</h6>
+                            <p>Let us be social</p>
+                            <div class="footer-social d-flex align-items-center mb-2">
+                                {% if config.THEME_SETTINGS.facebookID %}
+                                  <a href="https://www.facebook.com/{{ config.THEME_SETTINGS.facebookID }}" target="_blank">
+                                      <i class="fa fa-facebook"></i>
+                                  </a>
+                                {% endif %}
+                                {% if config.THEME_SETTINGS.twitterID %}
+                                  <a href="https://twitter.com/{{ config.THEME_SETTINGS.twitterID }}" target="_blank">
+                                      <i class="fa fa-twitter"></i>
+                                  </a>
+                                {% endif %}
+                                {% if config.THEME_SETTINGS.instagramID %}
+                                  <a href="https://instagram.com/{{ config.THEME_SETTINGS.instagramID }}" target="_blank">
+                                      <i class="fa fa-instagram"></i>
+                                  </a>
+                                {% endif %}
+                                {% if config.THEME_SETTINGS.githubID %}
+                                  <a href="https://github.com/{{ config.THEME_SETTINGS.githubID }}" target="_blank">
+                                      <i class="fa fa-github"></i>
+                                  </a>
+                                {% endif %}
+                              </div>
+                              <div class="footer-social d-flex align-items-center mt-2">
+                                {% if config.THEME_SETTINGS.gitlabID %}
+                                  <a href="https://gitlab.com/{{ config.THEME_SETTINGS.gitlabID }}" target="_blank">
+                                      <i class="fa fa-gitlab"></i>
+                                  </a>
+                                {% endif %}
+                                {% if config.THEME_SETTINGS.codepenID %}
+                                  <a href="https://codepen.com/{{ config.THEME_SETTINGS.codepenID }}" target="_blank">
+                                      <i class="fa fa-codepen"></i>
+                                  </a>
+                                {% endif %}
+                                {% if config.THEME_SETTINGS.linkedInURL %}
+                                  <a href="{{ config.THEME_SETTINGS.linkedInURL }}" target="_blank">
+                                      <i class="fa fa-linkedin"></i>
+                                  </a>
+                                {% endif %}
+                                {% if config.THEME_SETTINGS.googleplusID %}
+                                  <a href="https://plus.google.com/u/0/+{{ config.THEME_SETTINGS.googleplusID }}" target="_blank">
+                                      <i class="fa fa-google-plus-official"></i>
+                                  </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End footer Area -->
+
+        <script src="{{ '/js/vendor/jquery-2.2.4.min.js'|asseturl }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="{{ '/js/vendor/bootstrap.min.js'|asseturl }}"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+
+        <script src="{{ '/js/easing.min.js'|asseturl }}"></script>
+        <script src="{{ '/js/hoverIntent.js'|asseturl }}"></script>
+        <script src="{{ '/js/superfish.min.js'|asseturl }}"></script>
+        <script src="{{ '/js/jquery.ajaxchimp.min.js'|asseturl }}"></script>
+        <script src="{{ '/js/jquery.magnific-popup.min.js'|asseturl }}"></script>
+        <script src="{{ '/js/owl.carousel.min.js'|asseturl }}"></script>
+        <script src="{{ '/js/jquery.sticky.js'|asseturl }}"></script>
+        <script src="{{ '/js/jquery.nice-select.min.js'|asseturl }}"></script>
+        <script src="{{ '/js/parallax.min.js'|asseturl }}"></script>
+        <script src="{{ '/js/mail-script.js'|asseturl }}"></script>
+        <script src="{{ '/js/main.js'|asseturl }}"></script>
+    </body>
+</html>

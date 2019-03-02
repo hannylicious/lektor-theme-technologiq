@@ -1,0 +1,15 @@
+_model: page
+---
+header_title: Test Header Title For New Page
+---
+body: Regular Body
+---
+header_text: test header text
+---
+sections:
+
+about
+feature
+home_video
+---
+title: Regular Title

@@ -1,0 +1,48 @@
+{% if config.THEME_SETTINGS.show_about_section == "true" %}
+<!-- Start about Area -->
+<section class="about-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-10">
+                <div class="title text-center">
+                    <h1 class="mb-10">Unique, Intuitive User Interface Design</h1>
+                    <p>Guaranteed to make your daily tasks much more simple.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-6 about-left">
+                <h6>Let us help where you need it</h6>
+                <h1>
+                    These are the things <br>
+                    That will change your business
+                </h1>
+                <p>
+                    <span>
+                        We can deliver the support you need for excellence
+                    </span>
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp
+                    or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                </p>
+                <a class="primary-btn" href="#">Get Started now</a>
+            </div>
+            <div class="col-lg-6 about-right">
+                <div class="active-about-carusel">
+                    <div class="single-carusel item">
+                        <img class="img-fluid" src="{{ '/img/about-img.png' }}" alt="">
+                    </div>
+                    <div class="single-carusel item">
+                        <img class="img-fluid" src="{{ '/img/about-img.png' }}" alt="">
+                    </div>
+                    <div class="single-carusel item">
+                        <img class="img-fluid" src="{{ '/img/about-img.png' }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End about Area -->
+{% endif %}

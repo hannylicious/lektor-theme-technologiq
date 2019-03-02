@@ -1,0 +1,56 @@
+{% if config.THEME_SETTINGS.show_service_section == "true" %}
+<!-- Start feature Area -->
+<section class="feature-area pb-100" id="service">
+    <div class="container">
+        {% if this._path == '/' %}
+        <div class="row mockup-container">
+            <img class="mx-auto d-block img-fluid" src="{{ '/img/laptop.png' }}" alt="">
+        </div>
+        {% endif %}
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pt-100 pb-60 col-lg-10">
+                <div class="title text-center">
+                    <h1 class="mb-10">You Want Technological Services?</h1>
+                    <p>We have so many technological features it will make you crazy in love with us.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="single-feature">
+                    <span class="lnr lnr-screen"></span>
+                    <h4>
+                        Stunning Visuals
+                    </h4>
+                    <p>
+                        Here, I focus on a range of items and features that we use in life without giving them a second thought such as Coca Cola.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-feature">
+                    <span class="lnr lnr-code"></span>
+                    <h4>
+                        Clean Code
+                    </h4>
+                    <p>
+                        Here, I focus on a range of items and features that we use in life without giving them a second thought such as Coca Cola.
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-feature">
+                    <span class="lnr lnr-clock"></span>
+                    <h4>
+                        Punctuality
+                    </h4>
+                    <p>
+                        Here, I focus on a range of items and features that we use in life without giving them a second thought such as Coca Cola.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End feature Area -->
+{% endif %}

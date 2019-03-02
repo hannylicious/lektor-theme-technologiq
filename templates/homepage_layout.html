@@ -1,0 +1,68 @@
+
+    {% include "sections/service.html" %}
+
+    <!--Stock Lektor Page Section-->
+    <section class="main-content">
+      <div class="container">
+            <h2>{{ this.title }}</h2>
+            {{ this.body }}
+      </div>
+    </section>
+    <!-- End Lektor Page Section-->
+
+    {% include "sections/about.html" %}
+
+    {% include "sections/feature.html" %}
+
+    {% include "sections/call_to_action.html" %}
+
+    {% include "sections/home_video.html" %}
+
+    {% include "sections/about_us.html" %}
+
+    {% include "sections/price.html" %}
+
+    {% include "sections/testimonial.html" %}
+
+      {% if config.THEME_SETTINGS.show_blog_section == "true" %}
+        <!-- Start latest-blog Area -->
+        <section class="latest-blog-area section-gap" id="blog">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-60 col-lg-8">
+                        <div class="title text-center">
+                            <h1 class="mb-10">Latest News from our Blog</h1>
+                            <p>What we are doing lately that you might find interesting.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 single-blog">
+                        <img class="img-fluid" src="{{ '/img/b1.png' }}" alt="">
+                        <ul class="tags">
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">CMS</a></li>
+                        </ul>
+                        <a href="#"><h4>Recent trends in Python</h4></a>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore.
+                        </p>
+                        <p class="post-date">31st January, 2018</p>
+                    </div>
+                    <div class="col-lg-6 single-blog">
+                        <img class="img-fluid" src="{{ '/img/b2.png' }}" alt="">
+                        <ul class="tags">
+                            <li><a href="#">Python</a></li>
+                            <li><a href="#">Lektor</a></li>
+                        </ul>
+                        <a href="#"><h4>An amazing trend in the CMS Market</h4></a>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore.
+                        </p>
+                        <p class="post-date">31st January, 2018</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End latest-blog Area -->
+      {% endif %}
