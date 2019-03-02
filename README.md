@@ -23,7 +23,7 @@ Add params in the `.lektorproject file`
 	zip = "60007"
 	phone = "(312)555-4567"
 	email = "your_email@yourdomain.com"
-	about = "info_about_you"		
+	about = "info_about_you"
 	site = "rogerwilliams.com"
 	googleanalytics = "your_google_analytics_id"
 	facebookID = "your_facebook"
@@ -42,16 +42,16 @@ Add params in the `.lektorproject file`
 
 ## Changing the layout
 
-Currently this is designed to accomodate 2 different layouts (a homepage and a page layout) and is easily extended to fit your needs. 
+Currently this is designed to accomodate 2 different layouts (a homepage and a page layout) and is easily extended to fit your needs.
 
 #### Default Layout
 
 By default when a user lands on the homepage it uses the `homepage_layout.html` template to display the content in more of a SaaS landing-page-esque design. You can change which sections show in which order by simply editing that file and changing the order of the included sections.
 
 #### Alternative Layout (Pages)
-For individual pages the layout is different than the main page (as the content of the page is supposed to be the main focus of that particular page) - but the layout is designed in such a way that it's easy to include the additional sections from the main page where you want them in the page layout. 
+For individual pages the layout is different than the main page (as the content of the page is supposed to be the main focus of that particular page) - but the layout is designed in such a way that it's easy to include the additional sections from the main page where you want them in the page layout.
 
-In your `contents.lr` for a page - you can include additional sections by adding a comma separated list of sections which you want included on that particular pages layout (they appear in order of the list provided) as seen below: 
+In your `contents.lr` for a page - you can include additional sections by adding a comma separated list of sections which you want included on that particular pages layout (they appear in order of the list provided) as seen below:
 
 ```
 ---
@@ -71,4 +71,4 @@ Optionally turn on add Disqus Comments on the blog posts with lektor-disqus-comm
 
 ## License
 
-Terminal is licensed under the [MIT license](LICENSE.md)
+Technologiq is licensed under the [MIT license](LICENSE.md)
